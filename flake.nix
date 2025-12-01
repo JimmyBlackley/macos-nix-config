@@ -23,15 +23,6 @@
 # - Sections marked [SAFE TO MODIFY] can be freely customized
 # - Sections marked [MODIFY WITH CAUTION] affect core system behavior
 # - Look for TODO and PLACEHOLDER comments for items needing attention
-#
-# WHY HOMEBREW VS NIX?
-# --------------------
-# Some applications are installed via Homebrew instead of Nix because:
-# - GUI apps often work better when installed via Homebrew on macOS
-# - Some proprietary apps are only available as Homebrew casks
-# - Certain apps require macOS-specific installation procedures
-# - Homebrew handles app updates and code signing more reliably for GUI apps
-#
 # ==============================================================================
 
 {
@@ -256,9 +247,6 @@
           # ====================================================================
           # [SAFE TO MODIFY] Command-line tools and applications
           # These are installed system-wide via Nix package manager
-          # 
-          # Why Nix for these? CLI tools work well with Nix, are easy to
-          # rollback, and don't require macOS-specific installation procedures
           # ====================================================================
           environment.systemPackages = with nixpkgs.legacyPackages.${system}; [
             
