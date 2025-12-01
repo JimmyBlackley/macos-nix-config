@@ -382,6 +382,7 @@
               "raycast"              # Spotlight replacement/launcher
               "aldente"              # Battery management
               "balenaetcher"         # USB/SD card flasher
+              "betterdisplay"        # Display management utility
               "stats"                # System monitor menu bar
               "rectangle"            # Window management
               "ice"                  # Menu bar manager
