@@ -48,9 +48,13 @@
     
     # Ghostty terminal emulator - installed from source
     ghostty.url = "github:ghostty-org/ghostty";
+    
+    # Zen Browser - declarative browser management
+    zen-browser.url = "github:0xc000022070/zen-browser-flake";
+    zen-browser.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs = inputs@{ self, nixpkgs, nix-darwin, home-manager, ghostty, ... }:
+  outputs = inputs@{ self, nixpkgs, nix-darwin, home-manager, ghostty, zen-browser, ... }:
   let
     # ==========================================================================
     # 2. CONFIGURATION VARIABLES
@@ -305,6 +309,7 @@
             
             # -- External Flake Packages --
             inputs.ghostty.packages.${system}.default  # Ghostty terminal
+            inputs.zen-browser.packages.${system}.default  # Zen Browser
           ];
 
           # ====================================================================
@@ -345,7 +350,6 @@
             casks = [
               # -- Web Browsers --
               "ungoogled-chromium"   # Privacy-focused Chromium
-              "zen-browser"          # Minimalist browser
               
               # -- Code Editors & IDEs --
               "visual-studio-code"   # Microsoft VS Code
