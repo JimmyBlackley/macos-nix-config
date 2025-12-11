@@ -143,9 +143,9 @@
               # To reset: delete ~/Library/Preferences/com.apple.dock.plist and rebuild
               # TODO: Ensure these apps are installed before first darwin-rebuild
               persistent-apps = [
-                "/Applications/Zen Browser.app"
+                "/Applications/Nix Apps/Zen Browser.app"
                 "/Applications/Obsidian.app"
-                "/Applications/Ghostty.app"
+                "/Applications/Nix Apps/Ghostty.app"
               ];
             };
 
