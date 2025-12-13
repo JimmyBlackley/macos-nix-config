@@ -1,0 +1,24 @@
+theme = Symfonic
+window-padding-x = 50
+window-padding-y = 32
+window-theme = ghostty
+window-subtitle = false
+
+
+font-family = Agave Nerd Font Mono Regular
+font-feature = -calt
+font-feature = -liga
+font-feature = -dlig
+font-size = 26
+adjust-cell-width = 5%
+window-colorspace = display-p3
+
+
+shell-integration = zsh
+shell-integration-features = true
+macos-secure-input-indication = true
+macos-icon = glass
+mouse-hide-while-typing = true
+auto-update = download
+auto-update-channel = tip
+

@@ -1,0 +1,16 @@
+# Zen Browser Extensions
+# Install these after first launch or they'll sync via Firefox Sync
+
+# Essential
+https://addons.mozilla.org/firefox/addon/ublock-origin/
+https://addons.mozilla.org/firefox/addon/bitwarden-password-manager/
+https://addons.mozilla.org/firefox/addon/darkreader/
+
+# Development
+https://addons.mozilla.org/firefox/addon/react-devtools/
+
+# Privacy & Utilities
+https://addons.mozilla.org/firefox/addon/facebook-container/
+https://addons.mozilla.org/firefox/addon/redirector/
+https://addons.mozilla.org/firefox/addon/multithreaded-download-manager/
+

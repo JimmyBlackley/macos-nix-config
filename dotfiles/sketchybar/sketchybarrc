@@ -1,0 +1,110 @@
+#!/bin/bash
+
+# ==============================================================================
+# SKETCHYBAR CONFIGURATION
+# ==============================================================================
+# Custom menu bar with: Clock, RAM, CPU, GPU, WiFi, Network, Battery
+# Items ordered right to left as requested
+# ==============================================================================
+
+PLUGIN_DIR="$CONFIG_DIR/plugins"
+
+# ==============================================================================
+# BAR APPEARANCE
+# ==============================================================================
+sketchybar --bar \
+  height=32 \
+  position=top \
+  sticky=on \
+  padding_left=8 \
+  padding_right=8 \
+  color=0xff1e1e2e \
+  shadow=off
+
+# ==============================================================================
+# DEFAULT ITEM SETTINGS
+# ==============================================================================
+sketchybar --default \
+  icon.font="Agave Nerd Font Mono:Bold:14.0" \
+  icon.color=0xffcdd6f4 \
+  label.font="Agave Nerd Font Mono:Regular:13.0" \
+  label.color=0xffcdd6f4 \
+  padding_left=4 \
+  padding_right=4 \
+  background.color=0xff313244 \
+  background.corner_radius=4 \
+  background.height=24
+
+# ==============================================================================
+# RIGHT SIDE ITEMS (ordered right to left)
+# ==============================================================================
+
+# CLOCK - ISO8601 format
+sketchybar --add item clock right \
+  --set clock \
+    icon=󰥔 \
+    update_freq=1 \
+    script="$PLUGIN_DIR/clock.sh" \
+    background.padding_right=8
+
+# RAM
+sketchybar --add item ram right \
+  --set ram \
+    icon=󰍛 \
+    update_freq=3 \
+    script="$PLUGIN_DIR/ram.sh"
+
+# CPU
+sketchybar --add item cpu right \
+  --set cpu \
+    icon=󰻠 \
+    update_freq=3 \
+    script="$PLUGIN_DIR/cpu.sh"
+
+# GPU
+sketchybar --add item gpu right \
+  --set gpu \
+    icon=󰢮 \
+    update_freq=5 \
+    script="$PLUGIN_DIR/gpu.sh"
+
+# WIFI
+sketchybar --add item wifi right \
+  --set wifi \
+    icon=󰖩 \
+    update_freq=5 \
+    script="$PLUGIN_DIR/wifi.sh"
+
+# NETWORK (bandwidth)
+sketchybar --add item network right \
+  --set network \
+    icon=󰛳 \
+    update_freq=2 \
+    script="$PLUGIN_DIR/network.sh"
+
+# BATTERY
+sketchybar --add item battery right \
+  --set battery \
+    icon=󰁹 \
+    update_freq=30 \
+    script="$PLUGIN_DIR/battery.sh" \
+    background.padding_left=8
+
+# ==============================================================================
+# LEFT SIDE ITEMS (optional - app name, spaces, etc.)
+# ==============================================================================
+
+# Current app name
+sketchybar --add item front_app left \
+  --set front_app \
+    icon.drawing=off \
+    label.font="Agave Nerd Font Mono:Bold:13.0" \
+    script="$PLUGIN_DIR/front_app.sh" \
+    background.padding_left=8 \
+  --subscribe front_app front_app_switched
+
+# ==============================================================================
+# INITIALIZE
+# ==============================================================================
+sketchybar --update
+
