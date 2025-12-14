@@ -37,7 +37,7 @@ in
     pkg-config
 
     # -- Programming Languages & Runtimes --
-    nodejs_22
+    nodejs_25
     bun
     go
     jdk
