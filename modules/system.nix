@@ -271,6 +271,19 @@
     # Power management: Disable display sleep when connected to power
     echo "Setting power management (display never sleeps on AC power)..."
     /usr/bin/pmset -c displaysleep 0
+
+    # Create symlink for Java in standard macOS location for GUI applications
+    echo "Setting up Java symlink for GUI applications..."
+    JAVA_LINK="/Library/Java/JavaVirtualMachines/zulu-25-nix.jdk"
+    JAVA_SOURCE="${pkgs.jdk25}/Library/Java/JavaVirtualMachines/zulu-25.jdk"
+    if [ -d "$JAVA_SOURCE" ]; then
+      mkdir -p /Library/Java/JavaVirtualMachines
+      # Remove old symlink if it exists
+      [ -L "$JAVA_LINK" ] && rm "$JAVA_LINK"
+      # Create new symlink
+      ln -sfn "$JAVA_SOURCE" "$JAVA_LINK"
+      echo "Java symlink created at $JAVA_LINK"
+    fi
   '';
 
   # ============================================================================

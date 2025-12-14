@@ -16,7 +16,13 @@ in
   # PACKAGE OVERLAYS
   # ============================================================================
   nixpkgs.overlays = [
-    # Add custom overlays here if needed
+    # Override nodejs_25 to skip tests (fixes build timeout issues when building from source)
+    (final: prev: {
+      nodejs_25 = prev.nodejs_25.overrideAttrs (oldAttrs: {
+        doCheck = false;
+        checkPhase = "";
+      });
+    })
   ];
 
   # ============================================================================
@@ -40,7 +46,8 @@ in
     nodejs_25
     bun
     go
-    jdk
+    jdk8
+    jdk25
     maven
     rustup
     python3
@@ -80,6 +87,20 @@ in
     # -- External Flake Packages --
     inputs.zen-browser.packages.${system}.default
   ];
+
+  # ============================================================================
+  # JAVA CONFIGURATION
+  # ============================================================================
+  # Set Java 25 as the default and configure JAVA_HOME
+  environment.variables = {
+    JAVA_HOME = "${pkgs.jdk25}";
+  };
+
+  # Ensure Java 25 is in PATH before Java 8
+  environment.shellInit = ''
+    export JAVA_HOME="${pkgs.jdk25}"
+    export PATH="$JAVA_HOME/bin:$PATH"
+  '';
 
   # ============================================================================
   # FONTS

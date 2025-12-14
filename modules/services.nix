@@ -81,5 +81,23 @@ except Exception as e:
       ProcessType = "Background";
     };
   };
+
+  # Set JAVA_HOME for GUI applications (like Prism Launcher)
+  launchd.user.agents.java-env = {
+    serviceConfig = {
+      Label = "org.nixdarwin.java-env";
+      ProgramArguments = [
+        "/bin/bash"
+        "-c"
+        ''
+          # Set JAVA_HOME and PATH for GUI applications
+          launchctl setenv JAVA_HOME "${pkgs.jdk25}"
+          launchctl setenv PATH "${pkgs.jdk25}/bin:$PATH"
+        ''
+      ];
+      RunAtLoad = true;
+      ProcessType = "Background";
+    };
+  };
 }
 
