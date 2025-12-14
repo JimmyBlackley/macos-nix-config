@@ -68,5 +68,18 @@ except Exception as e:
       StandardErrorPath = "/Users/${username}/Library/Logs/betterdisplay_cleanup_error.log";
     };
   };
+
+  launchd.user.agents.capslock-to-escape = {
+    serviceConfig = {
+      Label = "org.nixdarwin.capslock-to-escape";
+      ProgramArguments = [
+        "/bin/bash"
+        "-c"
+        ''/usr/bin/hidutil property --set '{"UserKeyMapping":[{"HIDKeyboardModifierMappingSrc":0x700000039,"HIDKeyboardModifierMappingDst":0x700000029}]}' || true''
+      ];
+      RunAtLoad = true;
+      ProcessType = "Background";
+    };
+  };
 }
 

@@ -83,7 +83,7 @@
     # TRACKPAD SETTINGS
     # --------------------------------------------------------------------------
     trackpad = {
-      Clicking = false;
+      Clicking = false;  # Disable tap to click
       TrackpadThreeFingerDrag = false;
     };
 
@@ -111,7 +111,7 @@
       InitialKeyRepeat = 15;
       "com.apple.mouse.tapBehavior" = 1;
       "com.apple.trackpad.forceClick" = false;
-      "com.apple.keyboard.fnState" = true;
+      "com.apple.keyboard.fnState" = false;  # F keys work as standard, fn for volume/etc
 
       # Disable "smart" typing features
       NSAutomaticQuoteSubstitutionEnabled = false;
@@ -205,14 +205,43 @@
           "64" = { enabled = false; };
           # Disable "Show Finder search window" (Cmd+Alt+Space)
           "65" = { enabled = false; };
+          # Disable Mission Control shortcuts
+          "32" = { enabled = false; };  # Mission Control (Control+Up)
+          "33" = { enabled = false; };  # Application windows (Control+Down)
+          "34" = { enabled = false; };  # Desktop (Control+Left)
+          "35" = { enabled = false; };  # Desktop (Control+Right)
+          # Disable Launchpad shortcuts
+          "160" = { enabled = false; };  # Launchpad
+          # Disable Dock shortcuts
+          "52" = { enabled = false; };   # Dock hide/show
+          # Disable window management shortcuts
+          "75" = { enabled = false; };   # Move focus to active or next window
+          "76" = { enabled = false; };   # Move focus to window drawer
+          "77" = { enabled = false; };   # Save picture of screen as file
+          "78" = { enabled = false; };   # Copy picture of screen to clipboard
+          "79" = { enabled = false; };   # Turn Dock hiding on/off
+          "80" = { enabled = false; };   # Move focus to the menu bar
+          "81" = { enabled = false; };   # Move focus to the Dock
         };
       };
-      # Disable two-finger swipe from right edge to show Notification Center
+      # Trackpad gestures - disable all requested gestures
       "com.apple.AppleMultitouchTrackpad" = {
-        TrackpadTwoFingerFromRightEdgeSwipeGesture = 0;
+        TrackpadTwoFingerFromRightEdgeSwipeGesture = 0;  # Disable Notification Center (swipe from right edge)
+        TrackpadThreeFingerVertSwipeGesture = 0;         # Disable Mission Control (three finger swipe up) and Show Desktop (swipe down)
+        TrackpadFourFingerVertSwipeGesture = 0;          # Disable App Expose (four finger swipe up)
+        TrackpadFourFingerHorizSwipeGesture = 0;         # Disable App Expose (four finger swipe left/right)
+        TrackpadThreeFingerHorizSwipeGesture = 0;        # Disable Mission Control (three finger swipe left/right)
+        TrackpadFiveFingerPinchGesture = 0;              # Disable Launchpad (pinch with thumb and four fingers)
+        TrackpadFourFingerPinchGesture = 0;              # Disable Launchpad (pinch with thumb and three fingers) and Show Desktop (spread)
       };
       "com.apple.driver.AppleBluetoothMultitouch.trackpad" = {
-        TrackpadTwoFingerFromRightEdgeSwipeGesture = 0;
+        TrackpadTwoFingerFromRightEdgeSwipeGesture = 0;  # Disable Notification Center (Bluetooth trackpad)
+        TrackpadThreeFingerVertSwipeGesture = 0;         # Disable Mission Control/Show Desktop (Bluetooth trackpad)
+        TrackpadFourFingerVertSwipeGesture = 0;
+        TrackpadFourFingerHorizSwipeGesture = 0;
+        TrackpadThreeFingerHorizSwipeGesture = 0;
+        TrackpadFiveFingerPinchGesture = 0;
+        TrackpadFourFingerPinchGesture = 0;
       };
       # Hide input sources (keyboard layouts) from menu bar
       "com.apple.TextInputMenu" = {
@@ -224,10 +253,8 @@
   # ============================================================================
   # KEYBOARD REMAPPING
   # ============================================================================
-  system.keyboard = {
-    enableKeyMapping = true;
-    remapCapsLockToControl = true;
-  };
+  # Note: Caps Lock to Escape remapping is done via LaunchAgent (see services.nix)
+  # since nix-darwin's keyboard remapping only supports remapCapsLockToControl
 
   # ============================================================================
   # ACTIVATION SCRIPTS
