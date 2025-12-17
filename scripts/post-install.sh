@@ -223,7 +223,16 @@ open "https://addons.mozilla.org/firefox/addon/redirector/"
 sleep 0.3
 open "https://addons.mozilla.org/firefox/addon/multithreaded-download-manager/"
 
-echo "→ Extension pages opened in browser"
+# Open Finder at the Redirector config so it's easy to import rules
+REDIRECTOR_CONFIG="$DOTFILES_DIR/zen/Redirector.json"
+if [ -f "$REDIRECTOR_CONFIG" ]; then
+    echo "→ Extension pages opened in browser"
+    echo "→ Opening Finder with Redirector Redirector.json selected (for Import)..."
+    open -R "$REDIRECTOR_CONFIG" 2>/dev/null || open "$(dirname "$REDIRECTOR_CONFIG")"
+else
+    echo "→ Extension pages opened in browser"
+    echo "→ Note: Redirector config file not found at $REDIRECTOR_CONFIG"
+fi
 
 echo ""
 echo "Press Enter to continue with app launching..."

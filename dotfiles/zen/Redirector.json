@@ -1,0 +1,110 @@
+{
+    "createdBy": "Redirector v3.5.3",
+    "createdAt": "2025-12-17T10:40:38.772Z",
+    "redirects": [
+        {
+            "description": "Example redirect, try going to http://example.com/anywordhere",
+            "exampleUrl": "http://example.com/some-word-that-matches-wildcard",
+            "exampleResult": "https://google.com/search?q=some-word-that-matches-wildcard",
+            "error": null,
+            "includePattern": "http://example.com/*",
+            "excludePattern": "",
+            "patternDesc": "Any word after example.com leads to google search for that word.",
+            "redirectUrl": "https://google.com/search?q=$1",
+            "patternType": "W",
+            "processMatches": "noProcessing",
+            "disabled": false,
+            "grouped": false,
+            "appliesTo": [
+                "main_frame"
+            ]
+        },
+        {
+            "description": "redirect google search for sols(s) to sols",
+            "exampleUrl": "https://www.google.com/search?client=firefox-b-d&channel=entpr&q=sols",
+            "exampleResult": "https://solss.uow.edu.au/sid/sols_login_ctl.login",
+            "error": null,
+            "includePattern": "https?:\\/\\/www\\.google\\.com\\/search\\?.*q=soll?ss?(&.*)?",
+            "excludePattern": "",
+            "patternDesc": "starts with google, ends with sols, solls, or solss",
+            "redirectUrl": "https://solss.uow.edu.au/sid/sols_login_ctl.login",
+            "patternType": "R",
+            "processMatches": "noProcessing",
+            "disabled": false,
+            "grouped": false,
+            "appliesTo": [
+                "main_frame"
+            ]
+        },
+        {
+            "description": "github",
+            "exampleUrl": "https://www.google.com/search?client=firefox-b-d&channel=entpr&q=gh",
+            "exampleResult": "https://github.com/JimmyBlackley?tab=repositories",
+            "error": null,
+            "includePattern": "https?:\\/\\/www\\.google\\.com\\/search\\?.*q=gh(&.*)?",
+            "excludePattern": "",
+            "patternDesc": "google search ends in gh",
+            "redirectUrl": "https://github.com/JimmyBlackley?tab=repositories",
+            "patternType": "R",
+            "processMatches": "noProcessing",
+            "disabled": false,
+            "grouped": false,
+            "appliesTo": [
+                "main_frame"
+            ]
+        },
+        {
+            "description": "instagram dm's",
+            "exampleUrl": "https://www.google.com/search?client=firefox-b-d&channel=entpr&q=dm",
+            "exampleResult": "https://www.instagram.com/direct/inbox/",
+            "error": null,
+            "includePattern": "https?:\\/\\/www\\.google\\.com\\/search\\?.*q=dm(&.*)?",
+            "excludePattern": "",
+            "patternDesc": "google search ends in dm's",
+            "redirectUrl": "https://www.instagram.com/direct/inbox/",
+            "patternType": "R",
+            "processMatches": "noProcessing",
+            "disabled": false,
+            "grouped": false,
+            "appliesTo": [
+                "main_frame"
+            ]
+        },
+        {
+            "description": "gemini ai studio redirect",
+            "exampleUrl": "https://www.google.com/search?client=firefox-b-d&channel=entpr&q=gemini",
+            "exampleResult": "https://aistudio.google.com/prompts/new_chat",
+            "error": null,
+            "includePattern": "https?:\\/\\/www\\.google\\.com\\/search\\?.*q=gemini(&.*)?",
+            "excludePattern": "",
+            "patternDesc": "google search ends in gemini",
+            "redirectUrl": "https://aistudio.google.com/prompts/new_chat",
+            "patternType": "R",
+            "processMatches": "noProcessing",
+            "disabled": false,
+            "grouped": false,
+            "appliesTo": [
+                "main_frame"
+            ]
+        },
+        {
+            "description": "discord shortcut",
+            "exampleUrl": "https://www.google.com/search?client=firefox-b-d&channel=entpr&q=discord",
+            "exampleResult": "https://discord.com/channels/@me",
+            "error": null,
+            "includePattern": "https?:\\/\\/www\\.google\\.com\\/search\\?.*q=disc(ord)?$",
+            "excludePattern": "",
+            "patternDesc": "google search ending in disc(ord)",
+            "redirectUrl": "https://discord.com/channels/@me",
+            "patternType": "R",
+            "processMatches": "noProcessing",
+            "disabled": false,
+            "grouped": false,
+            "appliesTo": [
+                "main_frame"
+            ]
+        }
+    ]
+}
+
+

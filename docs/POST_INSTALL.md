@@ -244,6 +244,23 @@ Zen Browser uses your saved profile:
 - Passwords
 - Cookies
 
+### Redirector rules (manual import)
+
+Redirector rules are stored in the repo at:
+
+- `dotfiles/zen/Redirector.json`
+
+During the Zen extensions step, the post-install script:
+
+- Opens the Redirector extension install page in Zen.
+- Opens a Finder window with `Redirector.json` selected.
+
+To load your rules:
+
+1. In Zen, open the Redirector extension’s options page.
+2. Use the **Import** feature and select the `Redirector.json` file from the Finder window.
+3. Any future changes you want to make permanent should be exported from Redirector and saved back to `dotfiles/zen/Redirector.json` in this repo.
+
 ## Troubleshooting
 
 ### Apps don't launch

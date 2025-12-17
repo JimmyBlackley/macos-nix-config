@@ -62,6 +62,7 @@
       "vlc"
       "stolendata-mpv"
       "spotify"
+      "tidal"
 
       # -- Creative & Production --
       "reaper"

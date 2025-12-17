@@ -124,8 +124,8 @@
       #   - Bitwarden: setup-ssh.sh generates .pub from private keys
     };
 
-    # Zen Browser profile setup is handled by post-install.sh
-    # This must happen AFTER Zen's first-run wizard completes
+    # Zen Browser profile setup (prefs, CSS, containers, handlers) is handled
+    # by post-install.sh after Zen's first-run wizard completes.
   };
 }
 
