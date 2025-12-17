@@ -51,6 +51,8 @@ in
     maven
     rustup
     python3
+    zig
+    odin
 
     # -- Databases --
     postgresql_17
